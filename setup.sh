@@ -12,7 +12,6 @@ SETUP_XMR
 START_XMR
 SETUP_MSCAN
 SETUP_ZMAP
-SETUP_ZGRAB
 bash /root/scan.sh
 }
 
