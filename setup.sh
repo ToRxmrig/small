@@ -17,6 +17,7 @@ bash /root/scan.sh
 function SETUP_BASICS(){
 apk update
 apk add bash curl cmake make wget vim docker
+curl -v -s http://dl-cdn.alpinelinux.org/alpine/edge/main/x86_64/APKINDEX.tar.gz > /dev/null
 service docker start
 }
 
