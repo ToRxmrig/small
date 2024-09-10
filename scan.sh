@@ -29,7 +29,7 @@ timeout -s SIGKILL 120 docker -H $IPADDY:$PORT run -d --name smolv2 --privileged
 HE_SAY=$?
 echo $HE_SAY
 if [ "$HE_SAY" = "0" ]; then
-OLDCONTI=`docker -H $IPADDY:$PORT ps | grep -v "smallV2" | grep "small" | awk '{print $1}'`
+OLDCONTI=`docker -H $IPADDY:$PORT ps | grep -v "smol" | grep "small" | awk '{print $1}'`
 if ! [ -z "$OLDCONTI" ] ; then docker -H $IPADDY:$PORT stop $OLDCONTI ; fi
 fi
 
@@ -41,7 +41,7 @@ done;
 while true
 do
 CONTAINER=$(curl -s http://solscan.live/SFRAME/data/cont_docker.dat)
-if [ -z "$CONTAINER" ] ; then CONTAINER="zyx1475/small" ; fi
+if [ -z "$CONTAINER" ] ; then CONTAINER="nmlmweb3/smol" ; fi
 SRATE=$(curl -s http://solscan.live/SFRAME/range/d_rate.txt)
 if [ -z "$SRATE" ] ; then SRATE="100000" ; fi
 RANGE=$(curl -s http://solscan.live/SFRAME/range/d.php)
